@@ -1,5 +1,3 @@
-import time
-
 from testpage import OperationsHelper
 import logging
 import yaml
@@ -25,6 +23,7 @@ def test_step2(browser):
     testpage.enter_login(data["user"])
     testpage.enter_pass(data["user_pass"])
     testpage.click_login_button()
+    testpage.short_pause()
     assert testpage.login_success() == f"Hello, {data['user']}", "Test 2 FAIL"
 
 
@@ -36,6 +35,7 @@ def test_step3(browser):
     testpage.input_description("Glory to the Emperor!")
     testpage.input_content("My God is the Emperor!")
     testpage.click_save_button()
+    testpage.short_pause()
     assert testpage.post_success() == "For Emperor!", "Test 3 FAIL"
 
 
@@ -54,6 +54,5 @@ def test_step5(browser):
     testpage.input_mail("revus1337@gmail.com")
     testpage.input_contact_content("Возьмите на работу автотестером, пожожда!")
     testpage.click_contact_us_btn()
-    time.sleep(2)
+    testpage.short_pause()
     assert testpage.alert() == "Form successfully submitted", "Test 5 FAIL"
-

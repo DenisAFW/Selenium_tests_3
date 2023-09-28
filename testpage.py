@@ -83,7 +83,6 @@ class OperationsHelper(BasePage):
     def click_save_button(self):
         logging.info("Click 'save' button")
         self.find_element(TestSearchLocators.LOCATOR_SAVE_BTN).click()
-        time.sleep(3)
 
     def post_success(self):
         logging.info("Start find post title")
@@ -95,7 +94,6 @@ class OperationsHelper(BasePage):
     def click_delete_btn(self):
         logging.info("Click delete post button")
         self.find_element(TestSearchLocators.LOCATOR_DELETE_BTN).click()
-        time.sleep(3)
 
     def success_delete(self):
         logging.info("Start find list of posts")
@@ -134,3 +132,6 @@ class OperationsHelper(BasePage):
         alert = self.driver.switch_to.alert
         text = alert.text
         return text
+
+    def short_pause(self):
+        return time.sleep(2)
